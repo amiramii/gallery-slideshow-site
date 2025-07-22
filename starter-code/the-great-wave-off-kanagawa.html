@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="../src/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Galleria slideshow site</title>
+</head>
+<body class="font-[Libre_Baskerville] ">
+  <section id="modal" class="bg-black/80 w-full h-full absolute z-50 top-0 flex flex-col items-center justify-center invisible">
+    <img src="./assets/the-great-wave-off-kanagawa/hero-small.jpg" alt="" class="order-2 object-center">
+    <button id="close-button" class="order-1 ml-[36rem] pb-4 text-white font-bold text-2xl cursor-pointer">Close</button>
+   </section>
+  <header class="flex flex-row justify-between items-center p-5 xl:p-10 border-b  xl:m-10 border-b-[#E5E5E5] xl:pt-0 text-xs uppercase text-[#7D7D7D] tracking-widest ">
+    <a href="../index.html">
+      <img src="./assets/shared/logo.svg" alt="">
+    </a>
+    <a href="../index.html">
+      Stop slideshow
+    </a>
+  </header>
+  <main class="flex flex-row p-10">
+   <section class="flex-1 relative">
+    <img src="./assets/the-great-wave-off-kanagawa/hero-large.jpg" alt="" class="object-cover w-[475px] h-[560px]">
+    <div class="absolute top-0 left-96 bg-white p-10 leading-14 w-[250px]">
+      <h1 class="text-4xl font-bold">
+        The Great Wave off Kanagawa
+      </h1>
+      <h3 class="text-[15px] text-grey-400">Hokusai</h3>
+    </div>
+    <img src="./assets/the-great-wave-off-kanagawa/artist.jpg" alt="artist:Hokusai photo" class="absolute -bottom-4 right-70">
+   <button tabindex="0" id="view-image" type="button" aria-label="view image" class="bg-black flex gap-x-5 p-2 items-center absolute bottom-2 left-2 pl-4 pr-4 hover:bg-black/30 cursor-pointer">
+    <img src="./assets/shared/icon-view-image.svg" alt="" class="aspect-square ">
+    <p class="text-white text-[15px]">
+      View image
+    </p>
+   </button>
+   </section>
+   <section class="flex-1 relative ">
+    <h1 class="absolute  text-[200px] leading-5 tracking-tight text-grey-100 font-extrabold top-10">
+      1831
+    </h1>
+    <div class="absolute z-40 text-grey-400 w-96 flex flex-col gap-y-12 top-14">
+      <p class="text-xl leading-7 font-bold">
+        The Great Wave off Kanagawa (Japanese: 神奈川沖浪裏, Hepburn: Kanagawa-oki Nami 
+        Ura, lit. "Under the Wave off Kanagawa"), also known as The Great Wave or simply 
+        The Wave, is a woodblock print by the Japanese ukiyo-e artist Hokusai. It was 
+        published sometime between 1829 and 1833 in the late Edo period as the first 
+        print in Hokusai's series Thirty-six Views of Mount Fuji. The image depicts an 
+        enormous wave threatening three boats off the coast in the Sagami Bay (Kanagawa 
+        Prefecture) while Mount Fuji rises in the background. 
+      </p>
+      <a href="https://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa" class="text-[13px]  tracking-wider uppercase" target="_blank">
+        Go to source 
+      </a>
+    </div>
+   </section>
+   
+  </main>
+  <footer class="flex items-center justify-between p-10 border-t border-t-grey-150 mt-10 relative" >
+    <span id="progress-bar" class="absolute top-0 border-t border-t-black left-0"></span>
+    <div>
+      <h4 class="text-xl font-bold">
+        The Great Wave off Kanagawa
+      </h4>
+      <span class="text-grey-400 text-xs">
+        Hokusai
+      </span>
+    </div>
+    <div class="flex gap-x-8">
+      <button class="cursor-pointer " id="back-btn" aria-label="back button" tabindex="0">
+        <img src="./assets/shared/icon-back-button.svg" alt="">
+      </button>
+      <button class="cursor-pointer bg-amber-600" id="next-btn" aria-label="next button" tabindex="0">
+        <img src="./assets/shared/icon-next-button.svg" alt="" >
+      </button>
+    </div>
+  </footer>
+  <script type="module">
+    import * as Navigate from "../src/main.js";
+    const newNavigation=new Navigate.Navigation("the-great-wave-off-kanagawa");
+    const modal=document.getElementById('modal');
+    document.getElementById('view-image').addEventListener('click',()=>{
+      Navigate.showModal(modal);
+    })
+    document.getElementById('close-button').addEventListener('click',()=>{
+      Navigate.hideModal(modal);
+    })
+    document.getElementById('next-btn').addEventListener('click',()=>{newNavigation.showNext()});
+    document.getElementById('back-btn').addEventListener('click',()=>{newNavigation.showPrevious()});
+    newNavigation.progressBar(document.getElementById('progress-bar'));
+
+  </script>
+  
+</body>
+</html>
