@@ -24,12 +24,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![landing page](image.png)
+![image page](image-1.png)
 
 ### Links
 
-- Solution URL: [ solution URL ](https://your-solution-url.com)
-- Live Site URL: [ live site URL ](https://your-live-site-url.com)
+- Solution URL: [ solution URL ](https://github.com/amiramii/gallery-slideshow-site.git)
+- Live Site URL: [ live site URL ](https://amiramii.github.io/gallery-slideshow-site/)
 
 ## My process
 
